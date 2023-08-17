@@ -1,38 +1,477 @@
-.App {
-  text-align: center;
+li {
+    text-decoration: none;
+    list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.poke-info {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.pokemon-list-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin-bottom: 1rem;
+    background: linear-gradient(rgb(128, 245, 215), rgb(132, 175, 132));
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* ................................... */
+
+.pokedexMainDiv {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(15, 15, 15);
+}
+@media screen and (max-height: 1030px) {
+    .pokedexMainDiv {
+        height: 100%;
+    }
 }
 
-.App-link {
-  color: #61dafb;
+.pokedex-card {
+
+    height: 100%;
+    width: 50%;
+    background-color: rgb(224, 32, 71);
+    box-shadow: 0px 10px 10px 10px rgb(167, 39, 39);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.poke-light-border {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.poke-lights {
+    width: 80%;
+    height: 100px;
+    border-radius: 10px;
+    border-bottom-right-radius: 80px;
+    box-shadow: 0 10px 10px black;
+    background-color: rgb(192, 22, 22);
+    display: flex;
+    align-items: center;
+}
+
+.light-1-1 {
+    width: 80px;
+    height: 80px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgb(33, 62, 72);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.light-1 {
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    background-color: rgb(6, 170, 240);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgb(33, 62, 72);
+    animation: animateLight1 2s linear infinite;
+}
+
+@keyframes animateLight1 {
+
+    0%,
+    100% {
+
+        background-color: rgb(6, 170, 240);
+    }
+
+    50% {
+        background-color: rgb(20, 83, 110);
+
+    }
+
+
+}
+
+.light-2 {
+    width: 30px;
+    height: 30px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgb(255, 255, 255);
+    animation: animateLight2 1s linear infinite;
+}
+
+@keyframes animateLight2 {
+
+    0%,
+    100% {
+
+        background-color: rgb(255, 0, 0);
+    }
+
+    50% {
+        background-color: rgb(43, 5, 5);
+
+    }
+
+
+}
+
+.light-3 {
+    width: 30px;
+    height: 30px;
+    border: 4px solid black;
+    background-color: rgb(255, 213, 0);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgb(255, 255, 255);
+    animation: animateLight3 1s linear infinite;
+}
+
+@keyframes animateLight3 {
+
+    0%,
+    100% {
+
+        background-color: rgb(255, 213, 0);
+    }
+
+    50% {
+        background-color: rgb(68, 58, 9);
+
+    }
+
+
+}
+
+.light-4 {
+    width: 30px;
+    height: 30px;
+    border: 4px solid black;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgb(255, 255, 255);
+    animation: animateLight4 1s linear infinite;
+}
+
+@keyframes animateLight4 {
+
+    0%,
+    100% {
+
+        background-color: rgb(136, 255, 0);
+    }
+
+    50% {
+        background-color: rgb(14, 54, 2);
+
+    }
+
+
+}
+
+.pokemon-container {
+    background: linear-gradient(rgb(75, 54, 80), rgb(110, 88, 88));
+    height: 500px;
+    width: 140%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 10px 10px 10px black;
+}
+
+.image-light {
+    display: flex;
+    justify-content: center;
+}
+
+.image-light-1 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-2 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-3 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-4 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-5 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-6 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-7 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-8 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.image-light-9 {
+    width: 20px;
+    height: 20px;
+    border: 4px solid black;
+    background-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(234, 56, 56);
+}
+
+.pokemon-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.poke-info ul {
+    padding: 0;
+}
+
+.poke-ul {
+    height: 400px;
+    /* width: fit-content; */
+    overflow-y: scroll;
+}
+
+.poke-ul::-webkit-scrollbar {
+    display: none;
+}
+
+.left-right-up-down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 2vh;
+    position: relative;
+    left: 100px;
+}
+
+.button-1 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    /* background-color: blueviolet; */
+    background: linear-gradient(rgb(88, 26, 104), rgb(157, 135, 175));
+    box-shadow: 10px 10px 10px black;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.button-2 {
+    position: relative;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(88, 26, 104), rgb(157, 135, 175));
+    box-shadow: 10px 10px 10px black;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.button-3 {
+    position: relative;
+
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(88, 26, 104), rgb(157, 135, 175));
+    box-shadow: 10px 10px 10px black;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.button-4 {
+    position: relative;
+    top: 50px;
+    right: 95px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(88, 26, 104), rgb(157, 135, 175));
+    box-shadow: 10px 10px 10px black;
+    font-size: 30px;
+    border-radius: 10px;
+}
+.button-5{
+    background-color: rgb(47, 154, 173);
+    color: white;
+    position: relative;
+    top: 140px;
+    right: 178px;
+ 
+    box-shadow: 10px 10px 10px black;
+    
+    border-radius: 10px;
+}
+
+.middle-gap-1 {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(219, 24, 92);
+}
+
+.middle-gap-2 {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(219, 148, 24);
+}
+
+.middle-gap-3 {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(219, 24, 92);
+
+}
+
+.middle-gap-4 {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(56, 5, 118);
+
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 19vh;
+    margin-right: 19vh;
+    margin-bottom: 2vh;
+}
+
+.keyboard .letter-button {
+    margin-right: 0.5vh;
+    margin-bottom: 0.5vh;
+    background-color: rgb(61, 46, 46);
+    color: rgb(255, 255, 255);
+    box-shadow: 10px 10px 10px black;
+    padding: 0.5rem;
+}
+
+.search-bar {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
+    padding: 2rem;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 80%;
+    height: 80px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 92, 92);
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    box-shadow: 10px 10px 10px black;
+    margin-bottom: 3vh;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    border-radius: 20px;
+}
+
+.btn{
+    /* border: none; */
+    background-color: rgb(60, 112, 0);
+    color: white;
+}
+
+.btn-primary{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px black;
+}
+
+.search-light {
+    width: 30px;
+    height: 30px;
+    border: 4px solid black;
+    background-color: rgb(255, 225, 0);
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgb(255, 255, 255);
+    float: right;
+    /* margin-right: 6vh; */
+    animation: animateLight3 1s linear infinite;
+}
+
+.bottom-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bottom-bar div {
+    width: 40%;
+    height: 30px;
+    background-color: rgb(33, 17, 47);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 1vh;
 }
