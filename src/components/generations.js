@@ -1,9 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import PokemonById from './pokemonById';
-const Generations = ({ listRef, listRefId, offset, startIndex, pokemonClicked, setPokemonClicked }) => {
-    const [pokemonList, setPokemonList] = useState([]);
-    const [pokemonId, setPokemonId] = useState(0);
+const Generations = ({ listRef, listRefId, offset, startIndex, pokemonClicked, setPokemonClicked, pokemonId, setPokemonId, handleListClick, pokemonList, setPokemonList}) => {
+    // const [pokemonList, setPokemonList] = useState([]);
+    // const [pokemonId, setPokemonId] = useState(0);
     // const [pokemonClicked, setPokemonClicked] = useState(false);
     
 
@@ -21,13 +21,13 @@ const Generations = ({ listRef, listRefId, offset, startIndex, pokemonClicked, s
         };
 
         fetchData();
-    }, [offset]);
+    }, [offset, setPokemonList]);
 
-    const handleListClick = (index) => {
-        // console.log(index);
-        setPokemonClicked(true);
-        setPokemonId(index);
-    }
+    // const handleListClick = (index) => {
+    //     console.log(index);
+    //     setPokemonClicked(true);
+    //     setPokemonId(index);
+    // }
 
     // console.log(pokemonList);
 

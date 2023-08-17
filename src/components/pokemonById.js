@@ -6,18 +6,18 @@ const PokemonById = ({ listRefId, pokemonId }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [pokeDescription, setPokeDescription] = useState("");
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
 
-                console.log(response.data);
+                // console.log(response.data);
 
                 setPokemon(response.data);
 
                 const response2 = await axios.get(response.data.species.url);
-                console.log(response2.data);
+                // console.log(response2.data);
                 setPokeDescription(response2.data);
                 // console.log(pokemon)
             } catch (error) {
@@ -56,55 +56,60 @@ const PokemonById = ({ listRefId, pokemonId }) => {
         // </ul>
         <div ref={listRefId} className='poke-ul'>
 
-            <div>
-                {pokemon.sprites.other.dream_world.front_default === null
-                    ? <img src={pokemon.sprites.front_default} alt='pokemon' />
-                    : <img src={pokemon.sprites.other.dream_world.front_default} alt='pokemon' />
-                }
-            </div>
-
-            <div>
-                <h2>{pokemon.name}</h2>
-            </div>
-
-            <div>
-                {pokemon.types.map((type,index)=>(
-                    <div key={index}>
-                        Type {index+1}: {type.type.name}
+            <div className='poke-id'>
+                <div>
+                    <div className='poke-image-div'>
+                        {pokemon.sprites.other.dream_world.front_default === null
+                            ? <img src={pokemon.sprites.front_default} alt='pokemon' />
+                            : <img src={pokemon.sprites.other.dream_world.front_default} alt='pokemon' />
+                        }
                     </div>
-                ))}
-            </div>
 
-            <div>
-                {pokemon.abilities.map((ability,index)=>(
-                    <div key={index}>
-                        Ability {index+1}: {ability.ability.name}
+                    <div className='poke-name-div'>
+                        <h2>{pokemon.name}</h2>
                     </div>
-                ))}
-            </div>
 
-            <div>
-                {pokemon.stats.map((stat,index)=>(
-                    <div key={index}>
-                        {stat.stat.name}: {stat.base_stat}
+                    <div className='poke-type-div'>
+                        {pokemon.types.map((type, index) => (
+                            <div key={index}>
+                                {type.type.name}
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
 
-            <div>
-                {pokeDescription.egg_groups.map((egg, index)=>(
-                    <div key={index}>
-                        Egg Group {index+1}: {egg.name}
+                    <div className='poke-ability-div'>
+                        {pokemon.abilities.map((ability, index) => (
+                            <div key={index}>
+                                Ability {index + 1}: {ability.ability.name}
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                    <div className='poke-egg-div'>
+                        {pokeDescription.egg_groups.map((egg, index) => (
+                            <div key={index}>
+                                Egg Group {index + 1}: {egg.name}
+                            </div>
+                        ))}
+                    </div>
+                    <div className='poke-stat-div'>
+                        {pokemon.stats.map((stat, index) => (
+                            <div key={index}>
+                                {stat.stat.name}: {stat.base_stat}
+                            </div>
+                        ))}
+                    </div>
 
-            <div>
-                {pokeDescription.flavor_text_entries.map((text, index)=>(
-                    <div key={index}>
-                        {text.language.name==="en"?text.flavor_text:""}
+
+
+                    <div className='poke-description-div'>
+                        {/* {pokeDescription.flavor_text_entries.map((text, index) => (
+                            <p key={index}>
+                                {text.language.name === "en" ? text.flavor_text : ""}
+                            </p>
+                        ))} */}
+                        <p>{pokeDescription.flavor_text_entries.find(text => text.language.name === "en")?.flavor_text || ""}</p>
                     </div>
-                ))}
+                </div>
             </div>
         </div>
 

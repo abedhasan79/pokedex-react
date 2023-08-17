@@ -7,41 +7,51 @@ import Keyboard from "../components/keyboard";
 import SearchBar from "../components/search";
 
 function Pokedex() {
-
+    const [pokemonList, setPokemonList] = useState([])
     const [searchQuery, setSearchQuery] = useState("")
+    const [pokemonId, setPokemonId] = useState(0);
+    const [genCount, setGenCount] = useState(0);
+    const [pokemonClicked, setPokemonClicked] = useState(false);
+    const listRef = useRef(null);
+    const listRefId = useRef(null);
+
     const handleKeyboardClick = (key) => {
         setSearchQuery(searchQuery + key);
     };
-    const handleSearch = (query) => {
-        // Perform search logic here
-        console.log('Searching for:', query);
-    };
+    
 
-    const [genCount, setGenCount] = useState(0);
+
 
     const handleGenChangeRight = () => {
-        setGenCount(genCount + 1)
-        if (genCount === 8) {
-            setGenCount(0);
+        if (!pokemonClicked) {
+            setGenCount(genCount + 1)
+            if (genCount === 8) {
+                setGenCount(0);
+            }
+        } else {
+            setPokemonId(pokemonId + 1)
         }
         // console.log(genCount);
     }
 
     const handleGenChangeLeft = () => {
-        setGenCount(genCount - 1)
-        if (genCount <= 0) {
-            setGenCount(0);
+        if (!pokemonClicked) {
+            setGenCount(genCount - 1)
+            if (genCount <= 0) {
+                setGenCount(0);
+            }
+        }else{
+            setPokemonId(pokemonId-1);
         }
         // console.log(genCount);
     }
-    const [pokemonClicked, setPokemonClicked] = useState(false);
+
     const handleReturn = () => {
         setPokemonClicked(false);
-        
+
     }
 
-    const listRef = useRef(null);
-    const listRefId = useRef(null);
+
     const scrollUp = () => {
         const scrollAmount = -100;
         if (!pokemonClicked) {
@@ -61,6 +71,13 @@ function Pokedex() {
         }
     }
 
+
+    const handleListClick = (index) => {
+        // console.log(index);
+        setPokemonClicked(true);
+        setPokemonId(index);
+    }
+
     return (
         <div className="pokedexMainDiv">
             <div className="pokedex-card">
@@ -77,15 +94,15 @@ function Pokedex() {
                                         <ImageLight />
                                     </div>
                                     <div className="poke-info">
-                                        {genCount === 0 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'limit=151'} listRef={listRef} listRefId={listRefId} startIndex={1} /> : ""}
-                                        {genCount === 1 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=151&limit=100'} startIndex={152} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 2 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=251&limit=135'} startIndex={252} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 3 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=386&limit=108'} startIndex={387} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 4 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=494&limit=155'} startIndex={495} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 5 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=649&limit=72'} startIndex={650} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 6 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=721&limit=88'} startIndex={722} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 7 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=809&limit=96'} startIndex={810} listRef={listRef} listRefId={listRefId}/> : ""}
-                                        {genCount === 8 ? <Generations setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=905&limit=105'} startIndex={906} listRef={listRef} listRefId={listRefId}/> : ""}
+                                        {genCount === 0 ? <Generations pokemonList={pokemonList} setPokemonList={setPokemonList} pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'limit=151'} listRef={listRef} listRefId={listRefId} startIndex={1} /> : ""}
+                                        {genCount === 1 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=151&limit=100'} startIndex={152} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 2 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=251&limit=135'} startIndex={252} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 3 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=386&limit=108'} startIndex={387} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 4 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=494&limit=155'} startIndex={495} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 5 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=649&limit=72'} startIndex={650} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 6 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=721&limit=88'} startIndex={722} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 7 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=809&limit=96'} startIndex={810} listRef={listRef} listRefId={listRefId} /> : ""}
+                                        {genCount === 8 ? <Generations pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'offset=905&limit=105'} startIndex={906} listRef={listRef} listRefId={listRefId} /> : ""}
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +123,7 @@ function Pokedex() {
                     <div>
 
                         <div>
-                            <SearchBar searchQuery={searchQuery} onSearchQueryChange={setSearchQuery} onSearch={handleSearch} />
+                            <SearchBar pokemonList={pokemonList} searchQuery={searchQuery} onSearchQueryChange={setSearchQuery}  />
                         </div>
                         <div>
                             <Keyboard onClick={handleKeyboardClick} />

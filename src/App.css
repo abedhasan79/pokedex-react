@@ -436,7 +436,7 @@ li {
 
 .btn{
     /* border: none; */
-    background-color: rgb(60, 112, 0);
+    background-color: rgb(168, 157, 54);
     color: white;
 }
 
@@ -474,4 +474,118 @@ li {
     margin-top: 2vh;
     margin-bottom: 2vh;
     margin-left: 1vh;
+}
+
+/* .poke-description-div{
+    width: 20%;
+} */
+.poke-image-div img{
+    width: 200px;
+    height: 200px;
+}
+
+.poke-id{
+    width: min-content;
+    
+}
+
+.poke-name-div{
+    display: flex;
+    justify-content: center;
+}
+
+.poke-type-div{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.poke-type-div div{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.poke-ability-div{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.poke-ability-div div{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.poke-egg-div{
+    display: flex;
+    justify-content: space-around;
+    /* margin-top: 0.5rem; */
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.poke-egg-div div{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.poke-stat-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    /* margin-top: 0.5rem; */
+    margin-bottom: 1rem;
+    
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.poke-stat-div div{
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.poke-description-div p{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+
+.filtered-pokemon-list-div{
+    display: flex;
+    justify-content: center;
+    
+}
+.filtered-pokemon-list{
+    width: 55%;
+    background: linear-gradient(rgb(75, 54, 80), rgb(110, 88, 88));
+    border-radius: 20px;
+    padding: 0;
+    height: 300px;
+    overflow-y: scroll ;
+}
+
+.filtered-pokemon-list::-webkit-scrollbar {
+    display: none;
+}
+
+.filtered-pokemon-list li{
+    background: linear-gradient(rgb(128, 245, 215), rgb(132, 175, 132));
+    border: 1px solid black;
+    border-radius: 20px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
 }
