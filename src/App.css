@@ -293,6 +293,25 @@ li {
     margin-bottom: 2rem;
 }
 
+@media screen and (max-width:1164px) {
+    .pokemon-display{
+        margin-bottom: 15rem;
+    }
+    .pokedexMainDiv{
+        height: auto;
+    }
+    .poke-container-main{
+        position: relative;
+        right: 50px;
+    }
+    .left-right-up-down {
+        
+       top:80px;
+       margin-right: 4rem;
+       
+    }
+}
+
 .poke-info ul {
     padding: 0;
 }
@@ -406,13 +425,18 @@ li {
 
 }
 
+.keyboardMainDiv{
+    display: flex;
+    justify-content: center;
+}
 .keyboard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 19vh;
+    /* margin-left: 19vh;
     margin-right: 19vh;
-    margin-bottom: 2vh;
+    margin-bottom: 2vh; */
+    width: 480px;
 }
 
 .keyboard .letter-button {
@@ -430,6 +454,12 @@ li {
     justify-content: center; */
     padding: 2rem;
     text-align: center;
+}
+
+@media screen and (max-width:1185px) {
+    .search-bar{
+        padding-right: 5rem;
+    }
 }
 
 .search-bar input {
@@ -610,4 +640,38 @@ li {
 
 .toLightUp{
     animation: animateLight4 1s linear infinite;
+}
+
+@media screen and (max-width:900px) {
+    .pokedex-card{
+        width: 60%;
+    }
+    
+}
+
+@media screen and (max-width:738px) {
+    .pokedex-card{
+        width: 70%;
+    }
+    
+}
+
+@media screen and (max-width:560px) {
+    
+    .pokedex-card{
+        width: 90%;
+    }
+}
+@media screen and (max-width:459px) {
+    
+    body{
+        margin:0% ;
+        padding: 0%;
+        width: 600px;
+        
+    }
+    .pokedexMainDiv{
+        height: 1800px;
+    }
+    
 }

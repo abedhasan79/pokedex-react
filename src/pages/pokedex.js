@@ -128,18 +128,21 @@ function Pokedex() {
                     <div className="middle-gap-2"></div>
                     <div className="middle-gap-3"></div>
                     <div className="middle-gap-4"></div>
-                    <div>
+
+                    <div className="bottom-main-div">
 
                         <div>
-                            <SearchBar pokemonId={pokemonId} setpokemonId={setPokemonId} handleListClick={handleListClick} searchQuery={searchQuery} onSearchQueryChange={setSearchQuery} />
-                        </div>
-                        <div>
-                            <Keyboard onClick={handleKeyboardClick} />
-                        </div>
+                            <div >
+                                <SearchBar pokemonId={pokemonId} setpokemonId={setPokemonId} handleListClick={handleListClick} searchQuery={searchQuery} onSearchQueryChange={setSearchQuery} />
+                            </div>
+                            <div className="keyboardMainDiv">
+                                <Keyboard onClick={handleKeyboardClick} />
+                            </div>
 
-                        <div className="bottom-bar">
-                            <div></div>
-                            <div></div>
+                            <div className="bottom-bar">
+                                <div></div>
+                                <div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
