@@ -42,6 +42,11 @@ li {
     }
 }
 
+@media screen and (max-height: 1200px) {
+    .pokedexMainDiv {
+        height: 100%;
+    }
+}
 .pokedex-card {
 
     height: 100%;
