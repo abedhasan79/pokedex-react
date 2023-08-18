@@ -18,18 +18,21 @@ function Pokedex() {
     const handleKeyboardClick = (key) => {
         setSearchQuery(searchQuery + key);
     };
-    
-
 
 
     const handleGenChangeRight = () => {
         if (!pokemonClicked) {
-            setGenCount(genCount + 1)
+            setGenCount(genCount + 1);
             if (genCount === 8) {
                 setGenCount(0);
             }
         } else {
             setPokemonId(pokemonId + 1)
+            if (pokemonId > 1009) {
+                setPokemonId(1)
+
+            }
+            // console.log(pokemonId)
         }
         // console.log(genCount);
     }
@@ -40,8 +43,13 @@ function Pokedex() {
             if (genCount <= 0) {
                 setGenCount(0);
             }
-        }else{
-            setPokemonId(pokemonId-1);
+        } else {
+            setPokemonId(pokemonId - 1);
+            if (pokemonId === 1) {
+                setPokemonId(1010)
+
+            }
+
         }
         // console.log(genCount);
     }
@@ -91,7 +99,7 @@ function Pokedex() {
                             <div className="pokemon-container">
                                 <div>
                                     <div>
-                                        <ImageLight />
+                                        <ImageLight count={genCount} />
                                     </div>
                                     <div className="poke-info">
                                         {genCount === 0 ? <Generations pokemonList={pokemonList} setPokemonList={setPokemonList} pokemonId={pokemonId} setPokemonId={setPokemonId} handleListClick={handleListClick} setPokemonClicked={setPokemonClicked} pokemonClicked={pokemonClicked} offset={'limit=151'} listRef={listRef} listRefId={listRefId} startIndex={1} /> : ""}
@@ -123,7 +131,7 @@ function Pokedex() {
                     <div>
 
                         <div>
-                            <SearchBar pokemonId={pokemonId} setpokemonId={setPokemonId} handleListClick={handleListClick} searchQuery={searchQuery} onSearchQueryChange={setSearchQuery}  />
+                            <SearchBar pokemonId={pokemonId} setpokemonId={setPokemonId} handleListClick={handleListClick} searchQuery={searchQuery} onSearchQueryChange={setSearchQuery} />
                         </div>
                         <div>
                             <Keyboard onClick={handleKeyboardClick} />
