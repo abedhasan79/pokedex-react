@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import axios from 'axios';
 import PokemonById from './pokemonById';
 const Generations = ({ listRef, listRefId, offset, startIndex, pokemonClicked, setPokemonClicked, pokemonId, setPokemonId, handleListClick, pokemonList, setPokemonList}) => {
@@ -12,7 +12,7 @@ const Generations = ({ listRef, listRefId, offset, startIndex, pokemonClicked, s
             try {
                 const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?${offset}`);
 
-                // console.log(response.data);
+                // console.log(response.data.results);
 
                 setPokemonList(response.data.results);
             } catch (error) {
