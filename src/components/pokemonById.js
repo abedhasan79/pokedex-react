@@ -26,13 +26,13 @@ const PokemonById = ({ listRefId, pokemonId }) => {
         steel: '#B7B7CE',
         fairy: '#D685AD',
     };
-    console.log(pokemonTypeColours['grass']);
+    // console.log(pokemonTypeColours['grass']);
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
 
-                console.log(response.data);
+                // console.log(response.data);
 
                 setPokemon(response.data);
 

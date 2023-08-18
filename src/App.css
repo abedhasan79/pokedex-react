@@ -23,6 +23,11 @@ li {
     padding-right: 1rem;
 }
 
+.pokemon-list-div:hover{
+    background: linear-gradient(#f2afd0,#ffe4f1 );
+    cursor: pointer;
+}
+
 /* ................................... */
 
 .pokedexMainDiv {
@@ -576,6 +581,11 @@ li {
     justify-content: center;
     
 }
+
+.filtered-pokemon-list-div li:hover{
+    background: linear-gradient(#f2afd0,#ffe4f1 );
+    cursor: pointer;
+}
 .filtered-pokemon-list{
     width: 55%;
     background: linear-gradient(rgb(75, 54, 80), rgb(110, 88, 88));
@@ -596,4 +606,8 @@ li {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-top: 1rem;
+}
+
+.toLightUp{
+    animation: animateLight4 1s linear infinite;
 }
